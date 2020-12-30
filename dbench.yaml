@@ -13,7 +13,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 1000Gi
+      storage: 100Gi
 ---
 apiVersion: batch/v1
 kind: Job
@@ -29,12 +29,12 @@ spec:
         env:
           - name: DBENCH_MOUNTPOINT
             value: /data
-          # - name: DBENCH_QUICK
-          #   value: "yes"
+          # - name: FIO_RUNTIME
+          #   value: "30s"
           # - name: FIO_SIZE
-          #   value: 1G
+          #   value: 2G
           # - name: FIO_OFFSET_INCREMENT
-          #   value: 256M
+          #   value: 500M
           # - name: FIO_DIRECT
           #   value: "0"
         volumeMounts:

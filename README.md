@@ -6,9 +6,9 @@ Benchmark Kubernetes persistent disk volumes with `fio`: Read/write IOPS, bandwi
 1. Download [dbench.yaml](https://raw.githubusercontent.com/logdna/dbench/master/dbench.yaml) and edit the `storageClassName` to match your Kubernetes provider's Storage Class `kubectl get storageclasses`
 2. Deploy Dbench using: `kubectl apply -f dbench.yaml`
 3. Once deployed, the Dbench Job will:
-    * provision a Persistent Volume of `1000Gi` (default) using `storageClassName: ssd` (default)
+    * provision a Persistent Volume of `100Gi` (default) using `storageClassName: ssd` (default)
     * run a series of `fio` tests on the newly provisioned disk
-    * currently there are 9 tests, 15s per test - total runtime is ~2.5 minutes
+    * currently there are 9 tests, 30s per test
 4. Follow benchmarking progress using: `kubectl logs -f job/dbench` (empty output means the Job not yet created, or `storageClassName` is invalid, see Troubleshooting below)
 5. At the end of all tests, you'll see a summary that looks similar to this:
 ```
